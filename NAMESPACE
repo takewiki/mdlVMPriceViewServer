@@ -2,5 +2,9 @@
 
 export(InvoicePriceServer)
 export(InvoicePriceViewServer)
+export(LatestAccountPriceServer)
+export(LatestAccountPriceViewServer)
 export(OrderPriceServer)
 export(OrderPriceViewServer)
+export(PurPriceManagementServer)
+export(PurPriceManagementViewServer)

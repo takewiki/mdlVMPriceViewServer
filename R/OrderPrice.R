@@ -23,7 +23,7 @@ OrderPriceViewServer <- function(input, output, session, dms_token, erp_token) {
 
     tsui::run_dataTable2(id = 'OrderPrice_resultView',data = data)
 
-    tsui::run_download_xlsx(id = 'dl_OrderPrice_view',data = data,filename='订单价.xlsx')
+    tsui::run_download_xlsx(id = 'dl_OrderPrice_view',data = data,filename='采购订单价.xlsx')
 
 
 

@@ -23,7 +23,7 @@ InvoicePriceViewServer <- function(input, output, session, dms_token, erp_token)
 
     tsui::run_dataTable2(id = 'InvoicePrice_resultView',data = data)
 
-    tsui::run_download_xlsx(id = 'dl_InvoicePrice_view',data = data,filename='发票价.xlsx')
+    tsui::run_download_xlsx(id = 'dl_InvoicePrice_view',data = data,filename='采购发票价.xlsx')
 
 
 
