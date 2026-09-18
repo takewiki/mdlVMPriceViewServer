@@ -14,12 +14,15 @@ PurPriceManagementViewServer <- function(input, output, session, dms_token, erp_
 
   shiny::observeEvent(input$btn_PurPriceManagement_view, {
 
-    date_PurPriceManagement_Date = tsui::var_dateRange('date_PurPriceManagement_Date')
+    date_PurPriceManagement_Date = tsui::var_date('date_PurPriceManagement_Date')
+    var_txt_PurPriceManagement_ItemNumber= tsui::var_text('txt_PurPriceManagement_ItemNumber')
 
-    FStartDate=date_PurPriceManagement_Date()[1]
-    FEndDate=date_PurPriceManagement_Date()[2]
+    FDate=date_PurPriceManagement_Date()
 
-    data = mdlVMPriceViewPkg::PurPriceManagement_select(erp_token = erp_token,FStartDate = FStartDate,FEndDate = FEndDate)
+    FItemNumber = var_txt_PurPriceManagement_ItemNumber()
+
+
+    data = mdlVMPriceViewPkg::PurPriceManagement_select(erp_token = erp_token,FDate = FDate,FItemNumber = FItemNumber)
 
     tsui::run_dataTable2(id = 'PurPriceManagement_resultView',data = data)
 

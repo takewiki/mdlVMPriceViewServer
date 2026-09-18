@@ -14,16 +14,18 @@ LatestAccountPriceViewServer <- function(input, output, session, dms_token, erp_
 
   shiny::observeEvent(input$btn_LatestAccountPrice_view, {
 
-    date_LatestAccountPrice_Date = tsui::var_dateRange('date_LatestAccountPrice_Date')
+    date_LatestAccountPrice_Date = tsui::var_date('date_LatestAccountPrice_Date')
+    var_txt_LatestAccountPrice_ItemNumber = tsui::var_text('txt_LatestAccountPrice_ItemNumber')
 
-    FStartDate=date_LatestAccountPrice_Date()[1]
-    FEndDate=date_LatestAccountPrice_Date()[2]
 
-    data = mdlVMPriceViewPkg::LatestAccountPrice_select(erp_token = erp_token,FStartDate = FStartDate,FEndDate = FEndDate)
+    FDate=date_LatestAccountPrice_Date()
+    FItemNumber = var_txt_LatestAccountPrice_ItemNumber()
+
+    data = mdlVMPriceViewPkg::LatestAccountPrice_select(erp_token = erp_token,FDate = FDate,FItemNumber = FItemNumber )
 
     tsui::run_dataTable2(id = 'LatestAccountPrice_resultView',data = data)
 
-    tsui::run_download_xlsx(id = 'dl_LatestAccountPrice_view',data = data,filename='最新核算价格.xlsx')
+    tsui::run_download_xlsx(id = 'dl_LatestAccountPrice_view',data = data,filename='最新核算成本.xlsx')
 
 
 
